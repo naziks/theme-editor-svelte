@@ -1,0 +1,101 @@
+{
+	"name": "theme-editor-svelte",
+	"author": {
+		"name": "Naziks",
+		"url": "https://github.com/naziks"
+	},
+	"displayName": "Shadcn Theme Editor",
+	"description": "Universal theme editor for svelte",
+	"version": "1.0.0",
+	"license": "See license in LICENSE",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build && yarn run prepack && yarn run build:styles",
+		"preview": "vite preview",
+		"build:styles": "tailwindcss -c ./tailwind.config.build.js -o ./dist/lib.css --postcss ./postcss.config.build.js",
+		"prepare": "svelte-kit sync || echo ''",
+		"prepack": "svelte-kit sync && svelte-package && yarn run build:styles",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"sideEffects": [
+		"./dist/lib.css"
+	],
+	"svelte": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"type": "module",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"svelte": "./dist/index.js"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/naziks/theme-editor-svelte.git"
+	},
+	"bugs": {
+		"url": "https://github.com/naziks/theme-editor-svelte/issues"
+	},
+	"homepage": "https://github.com/naziks/theme-editor-svelte#readme",
+	"keywords": [
+		"svelte",
+		"shadcn",
+		"theme",
+		"editor",
+		"tailwind",
+		"tailwindcss",
+		"theme-editor",
+		"theme editor",
+		"shadcn svelte"
+	],
+	"peerDependencies": {
+		"svelte": "^5.0.0"
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.2.5",
+		"@eslint/js": "^9.18.0",
+		"@lucide/svelte": "^0.503.0",
+		"@semantic-release/changelog": "^6.0.3",
+		"@semantic-release/git": "^10.0.1",
+		"@semantic-release/github": "^11.0.2",
+		"@semantic-release/npm": "^12.0.1",
+		"@sveltejs/adapter-auto": "^4.0.0",
+		"@sveltejs/kit": "^2.16.0",
+		"@sveltejs/package": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^5.0.0",
+		"autoprefixer": "^10.4.21",
+		"bits-ui": "^1.3.19",
+		"clsx": "^2.1.1",
+		"cmdk-sv": "^0.0.19",
+		"conventional-changelog-conventionalcommits": "^9.0.0",
+		"eslint": "^9.18.0",
+		"eslint-config-prettier": "^10.0.1",
+		"eslint-plugin-svelte": "^3.0.0",
+		"globals": "^16.0.0",
+		"postcss": "^8.5.3",
+		"postcss-prefixwrap": "^1.55.0",
+		"prettier": "^3.4.2",
+		"prettier-plugin-svelte": "^3.3.3",
+		"publint": "^0.3.2",
+		"sass": "^1.86.3",
+		"semantic-release": "^24.2.3",
+		"svelte": "^5.0.0",
+		"svelte-check": "^4.0.0",
+		"tailwind-merge": "^3.2.0",
+		"tailwind-variants": "^1.0.0",
+		"tailwindcss": "^3.4.17",
+		"typescript": "^5.0.0",
+		"typescript-eslint": "^8.20.0",
+		"vite": "^6.2.5"
+	},
+	"packageManager": "yarn@4.9.1",
+	"dependencies": {
+		"color-convert": "^3.0.1",
+		"lucide-svelte": "^0.503.0",
+		"microdiff": "^1.5.0",
+		"runed": "^0.25.0"
+	}
+}
